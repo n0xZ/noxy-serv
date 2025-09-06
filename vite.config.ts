@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
 import Tailwind from "@tailwindcss/vite";
+import {resolve} from 'path'
 // @ts-expect-error process is a nodejs global
 const host = process.env.TAURI_DEV_HOST;
 
@@ -28,5 +29,6 @@ export default defineConfig(async () => ({
       // 3. tell Vite to ignore watching `src-tauri`
       ignored: ["**/src-tauri/**"],
     },
-  },
+  },resolve:{alias:{"~/":resolve("src")}}
+
 }));
